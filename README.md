@@ -83,15 +83,20 @@ Wait for it to download.
 
 Then test the AI reply:
 
-```npm run test-reply -- "hi"
-and:
 ```
+npm run test-reply -- "hi"
 
-```npm run test-reply -- "wt r u doing"
+```
+and:
+
+```
+npm run test-reply -- "wt r u doing"
 ```
 If those produce natural replies, start the WhatsApp bot:
 
-```npm start```
+```
+npm start
+```
 
 ## Safety Behavior
 
