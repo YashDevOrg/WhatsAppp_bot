@@ -1,0 +1,19 @@
+{
+  "name": "whatsapp-ai-auto-reply",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/bot.js",
+    "list-chats": "node src/list-chats.js",
+    "list-top-2": "node src/list-chats.js --limit=2",
+    "reset-session": "node src/reset-session.js",
+    "check-config": "node src/check-config.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "openai": "^4.77.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "github:DouglasReisofc/whatsapp-web.js#fix/events-ready-messages"
+  }
+}
