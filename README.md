@@ -12,9 +12,26 @@ Important: this uses WhatsApp Web automation, not the official WhatsApp Business
    npm install
    ```
 
-2. Configure `.env.local`.
+2. For free local AI replies, install Ollama from:
 
-   `OPENAI_API_KEY` is already created for this project. Add either:
+   https://ollama.com/download
+
+   Then pull a small chat model:
+
+   ```bash
+   ollama pull llama3.2:3b
+   ```
+
+3. Configure `.env.local`.
+
+   Use Ollama:
+
+   ```env
+   REPLY_PROVIDER=ollama
+   OLLAMA_MODEL=llama3.2:3b
+   ```
+
+   Add either:
 
    ```env
    WA_TARGET_CONTACT=919876543210@c.us
@@ -39,21 +56,42 @@ Important: this uses WhatsApp Web automation, not the official WhatsApp Business
    npm run list-top-2
    ```
 
-3. Start in safe test mode:
+4. Start in safe test mode:
 
    ```bash
    npm start
    ```
 
-4. Scan the QR code in WhatsApp:
+5. Scan the QR code in WhatsApp:
 
    WhatsApp > Linked devices > Link a device
 
-5. When replies look good, set:
+6. When replies look good, set:
 
    ```env
    AUTO_SEND=true
+
    ```
+
+
+7. After olama is installes  run the below coomad 
+
+```
+& "$env:LOCALAPPDATA\Programs\Ollama\ollama.exe" pull llama3.2:3b 
+```
+Wait for it to download.
+
+Then test the AI reply:
+
+```npm run test-reply -- "hi"
+and:
+```
+
+```npm run test-reply -- "wt r u doing"
+```
+If those produce natural replies, start the WhatsApp bot:
+
+```npm start```
 
 ## Safety Behavior
 

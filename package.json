@@ -7,7 +7,9 @@
     "start": "node src/bot.js",
     "list-chats": "node src/list-chats.js",
     "list-top-2": "node src/list-chats.js --limit=2",
+    "stop-browser": "node src/stop-bot-browser.js",
     "reset-session": "node src/reset-session.js",
+    "test-reply": "node src/test-reply.js",
     "check-config": "node src/check-config.js"
   },
   "dependencies": {

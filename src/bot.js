@@ -1,6 +1,7 @@
 import qrcode from "qrcode-terminal";
 import pkg from "whatsapp-web.js";
 import { config, validateConfig } from "./config.js";
+import { generateLocalReply } from "./local-reply.js";
 import { generateReply } from "./reply-agent.js";
 
 const { Client, LocalAuth } = pkg;
@@ -149,11 +150,11 @@ function createClient() {
         contactName: contact.name || contact.pushname || contact.number
       }).catch((error) => {
         if (error.status === 429 || error.code === "insufficient_quota") {
-          console.log("OpenAI quota is unavailable. Using fallback reply.");
+          console.log("OpenAI quota is unavailable. Using local contextual reply.");
           return {
             shouldReply: true,
-            reply: nextFallbackReply(),
-            reason: "Fallback reply used because OpenAI quota is unavailable."
+            reply: generateLocalReply(messageText),
+            reason: "Local contextual reply used because OpenAI quota is unavailable."
           };
         }
 
